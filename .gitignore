@@ -5,6 +5,7 @@
 ### Eclipse ###
 .settings/
 target/
+build/
 
 # Eclipse Core
 .project
