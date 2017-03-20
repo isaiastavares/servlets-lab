@@ -1,8 +1,8 @@
 package br.com.alura.gerenciador.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,13 +18,19 @@ public class NovaEmpresa extends HttpServlet {
 	private static final long serialVersionUID = -7498237010538197353L;
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	        throws ServletException, IOException {
 
-		String nome = req.getParameter("nome");
-		Empresa empresa = new Empresa(nome);
-		new EmpresaDAO().adiciona(empresa);
-		PrintWriter writer = resp.getWriter();
-		writer.println("<html><body>Empresa " + nome + " adicionado com sucesso!</body></html>");
+	    String nome = req.getParameter("nome");
+
+	    Empresa empresa = new Empresa(nome);
+	    new EmpresaDAO().adiciona(empresa);
+
+	    req.setAttribute("nome", nome);
+
+	    RequestDispatcher dispatcher = req
+	            .getRequestDispatcher("/WEB-INF/paginas/novaEmpresa.jsp");
+	    dispatcher.forward(req, resp);
 
 	}
 
