@@ -8,9 +8,9 @@
 	</c:if>
 	<br />
     <!-- formulários -->
-	<form action="novaEmpresa" method="post">
-		Nome: <input type="text" name="nome" /><br />
-		<input type="submit" value="Enviar" />
+	<form action="fazTudo?tarefa=NovaEmpresa" method="post">
+	    Nome: <input type="text" name="nome" /><br />
+	    <input type="submit" value="Enviar" />
 	</form>
 
 	<form action="login" method="post">
@@ -19,7 +19,7 @@
 		<input type="submit" value="Login" />
 	</form>
 
-	<form action="logout" method="post">
+	<form action="fazTudo?tarefa=Logout" method="post">
 	    <input type="submit" value="Logout" />
 	</form>
 </body>
