@@ -1,26 +1,26 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <body>
-    Bem vindo ao nosso gerenciador de empresas!
-    <br />
-    <c:if test="${not empty usuarioLogado}">
-	    Você está logado como ${usuarioLogado.email}<br/>
-	</c:if>
+	Bem vindo ao nosso gerenciador de empresas!
 	<br />
-    <!-- formulários -->
-	<form action="fazTudo?tarefa=NovaEmpresa" method="post">
-	    Nome: <input type="text" name="nome" /><br />
-	    <input type="submit" value="Enviar" />
+
+	<c:if test="${not empty usuarioLogado}">
+	Logado como ${usuarioLogado.email}<br />
+	</c:if>
+
+	<form action="novaEmpresa" method="POST">
+		Nome: <input type="text" name="nome"> <input type="submit"
+			value="Enviar">
 	</form>
 
-	<form action="login" method="post">
-		Email: <input type="text" name="email" /><br />
-		Senha: <input type="password" name="senha" /><br />
-		<input type="submit" value="Login" />
+	<form action="login" method="POST">
+		Email: <input type="email" name="email" /> Senha: <input
+			type="password" name="senha" /> <input type="submit" value="Enviar" />
 	</form>
 
-	<form action="fazTudo?tarefa=Logout" method="post">
-	    <input type="submit" value="Logout" />
+	<form action="executa" method="POST">
+		<input type="hidden" name="tarefa" value="Logout" /> <input
+			type="submit" value="Deslogar" />
 	</form>
 </body>
 </html>
